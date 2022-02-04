@@ -1,0 +1,22 @@
+name: trace-app-cs-plugin
+description: Plug-in to telemetry.
+types:
+- app
+inputs:
+- label: "Type"
+  type: text
+  name: "exporter_type"
+  default: "Jaeger"
+  items:
+    - "Jaeger"
+    - "OTLP"
+    - "X-Ray"
+    - "X-Ray - Daemon"
+- label: "Server"
+  type: text
+  name: "server"
+  default: ""
+- label: "Port"
+  type: text
+  name: "trace_port"
+  default: ""
