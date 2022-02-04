@@ -18,5 +18,5 @@ inputs:
   default: ""
 - label: "Port"
   type: text
-  name: "trace_port"
+  name: "port"
   default: ""
