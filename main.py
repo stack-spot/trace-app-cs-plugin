@@ -24,8 +24,8 @@ def put_appsettings(metadata: Metadata, project_name: str, exporter_type: str, f
             config = {
                         "Telemetry": {
                             "ExporterType": f"{metadata.inputs['exporter_type']}",
-                            "Host": f"{metadata.inputs['exporter_type']}",
-                            "Port": f"{metadata.inputs['exporter_type']}",
+                            "Host": f"{metadata.inputs['server']}",
+                            "Port": f"{metadata.inputs['port']}",
                             "ConsoleExporter": False,
                             "UseHttpClientInstrumentation": True
                         }                
