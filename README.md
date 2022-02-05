@@ -36,5 +36,5 @@ Os inputs necessários para utilizar o plugin são:
 | Port|  | Port do agent  |
 
 ### **Exemplo de uso**
-- [**Nuget**](https://www.nuget.org/packages/StackSpot.Tracing/)
-- [**Nuget**](https://www.nuget.org/packages/StackSpot.Tracing.XRay/)
+- [**Nuget OpenTelemetry**](https://www.nuget.org/packages/StackSpot.Tracing/)
+- [**Nuget X-Ray**](https://www.nuget.org/packages/StackSpot.Tracing.XRay/)
