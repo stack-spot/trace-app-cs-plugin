@@ -1,6 +1,4 @@
-## **Implementação**
-
-### **Inputs**
+#### **Inputs**
 Os inputs necessários para utilizar o plugin são:
 | **Campo** | **Valor** | **Descrição** |
 | :--- | :--- | :--- |
@@ -38,7 +36,7 @@ Você pode configurar as variáveis no arquivo `appsettings.json`.
 }
 ```
 
-### **Configurações**
+#### **Configurações**
 
 Adicione ao seu `IServiceCollection` via `services.AddOpenTelemetryTracing()` no `Startup` da aplicação ou `Program`.
 
@@ -49,12 +47,12 @@ Adicione ao seu `IServiceCollection` via `services.AddOpenTelemetryTracing()` no
         }
 ```
 
-#### **Ambiente local**
+#### Ambiente local
 
 Esta etapa não é obrigatória. Execute o comando abaixo para disponibilizar container `jaegertracing`:
 
 ```
-docker run -d -p6831:6831/udp -p16686:16686 jaegertracing/all-in-one:latest
+  docker run -d -p6831:6831/udp -p16686:16686 jaegertracing/all-in-one:latest
 ```
 
 Para visualizar os traces acesse: http://localhost:16686/
