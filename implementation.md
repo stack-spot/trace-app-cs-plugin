@@ -6,14 +6,14 @@ Os inputs necessários para utilizar o plugin são:
 | Server|  | Hostname do agent  |
 | Port|  | Port do agent  |
 
-* AppName - Nome da Aplicação - Campo Obrigatório.
-* ExporterType - Tipo de Exportação (Jaeger, x-ray ou otlp).
-* Host - Hostname do agent - comunicação via UDP.
-* Port - Porta do agent - comunicação via UDP.
-* ConsoleExporter - Exportar para o console.
-* UseGrpcClientInstrumentation - Habilitar instrumentação gRPC.
-* UseHttpClientInstrumentation - Habilitar instrumentação http.
-* Tags - Headers que serão propagados.
+- AppName - Nome da Aplicação - Campo Obrigatório.
+- ExporterType - Tipo de Exportação (Jaeger, x-ray ou otlp).
+- Host - Hostname do agent - comunicação via UDP.
+- Port - Porta do agent - comunicação via UDP.
+- ConsoleExporter - Exportar para o console.
+- UseGrpcClientInstrumentation - Habilitar instrumentação gRPC.
+- UseHttpClientInstrumentation - Habilitar instrumentação http.
+- Tags - Headers que serão propagados.
 
 Você pode configurar as variáveis no arquivo `appsettings.json`.
 
