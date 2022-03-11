@@ -21,7 +21,7 @@ inputs:
   name: "port"
   default: ""
 
-displayName: Trace - Plugin
+displayName: Trace
 
 picture: "plugin.png"
 
