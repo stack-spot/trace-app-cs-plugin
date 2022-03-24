@@ -1,4 +1,4 @@
-- **Descrição:** O plugin trace-app-cs-plugin adiciona em uma stack a capacidade de provisionar o uso de segredos armazenados na AWS trace Manager. 
+- **Descrição:** O trace-app-cs-plugin foi projetado para apoiar os desenvolvedores a configurar e utilizar o Opentelemetry com exporter para Jaeger e Instrumentação AWS X-Ray.
 
 - **Categoria:** Observability. 
 - **Stack:** dotnet.
@@ -10,7 +10,7 @@
 ## **Visão Geral**
 ### **trace-app-cs-plugin**
 
-O **trace-app-cs-plugin** adiciona em uma stack a capacidade de provisionar o uso de segredos armazenados na AWS trace Manager, reduzindo o risco da exposição de dados sensíveis no código, como logins e senhas de vários tipos (banco de dados, recursos de rede, etc.), chaves de API, chaves de criptografia e similares.
+O **trace-app-cs-plugin** foi projetado para apoiar os desenvolvedores a configurar e utilizar o Opentelemetry com exporter para Jaeger e Instrumentação AWS X-Ray.
 
 ## **Uso**
 
