@@ -25,7 +25,7 @@ computedInputs:
   "package": "{% if inputs.exporter_type == 'X-Ray - Daemon' %}{{'StackSpot.Tracing.XRay'}}{% else %}{{'StackSpot.Tracing'}}{% endif %}"
   "using": "{% if inputs.exporter_type == 'X-Ray - Daemon' %}{{'using StackSpot.Tracing.XRay;'}}{% else %}{{'using StackSpot.Tracing;'}}{% endif %}"
   "service": "{% if inputs.exporter_type == 'X-Ray - Daemon' %}{{'services.AddXRay(configuration);\n'}}{% else %}{{'services.AddOpenTelemetryTracing(configuration);\n'}}{% endif %}"
-  "app": "{% if inputs.exporter_type == 'X-Ray - Daemon' %}{{'app.UseXRay(configuration[\"AppName\"]);\n'}}{% else %}{% endif %}"
+  "app": "{% if inputs.exporter_type == 'X-Ray - Daemon' %}{{'app.UseXRay(appName);\n'}}{% else %}{% endif %}"
 
 hooks:
 #package
@@ -51,6 +51,12 @@ hooks:
             value: "{{computed_inputs.service}}"
           when:
             not-exists: "{{computed_inputs.service}}"
+      - search:
+          string: "return app"
+          insert-before:
+            snippet: snippets/src/Application/app.txt
+          when:
+            not-exists: "{computed_inputs.app}}"              
       - search:
           string: "return app"
           insert-before:

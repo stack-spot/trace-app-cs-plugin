@@ -1,0 +1,1 @@
+var appName = configuration["AppName"];
