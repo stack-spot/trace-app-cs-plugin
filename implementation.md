@@ -2,14 +2,18 @@
 Os inputs necessários para utilizar o plugin são:
 | **Campo** | **Valor** | **Descrição** |
 | :--- | :--- | :--- |
-| Port| ex.: 6831 | Porta do Agent com comunicação via UDP  |
-| AppName|  ex.: MyAppName | Nome da Aplicação - Campo Obrigatório |
-| ExporterType|  Jaeger / X-Ray / OTLP | Tipo de Exportação |
-| Host|  ex.: localhost | Hostname do agent - comunicação via UDP |
-| ConsoleExporter|  true/false | Indicador para exportar para o console |
-| UseGrpcClientInstrumentation|  true/false | Indicador para habilitar instrumentação gRPC |
-| UseHttpClientInstrumentation|  true/false | Indicador para habilitar instrumentação http |
-| Tags|  ex.: X-PTO-TraceID, X-PTO-ParentSpanId | Headers que serão propagados |
+| Type| Padrão: "Jaeger" | Tipo do Exporter(Jaeger, OTLP, X-Ray, X-Ray - Daemon) |
+| Server|  | Hostname do agent  |
+| Port|  | Port do agent  |
+
+- AppName - Nome da Aplicação - Campo Obrigatório.
+- ExporterType - Tipo de Exportação (Jaeger, x-ray ou otlp).
+- Host - Hostname do agent - comunicação via UDP.
+- Port - Porta do agent - comunicação via UDP.
+- ConsoleExporter - Exportar para o console.
+- UseGrpcClientInstrumentation - Habilitar instrumentação gRPC.
+- UseHttpClientInstrumentation - Habilitar instrumentação http.
+- Tags - Headers que serão propagados.
 
 Você pode configurar as variáveis no arquivo `appsettings.json`.
 
@@ -24,9 +28,9 @@ Você pode configurar as variáveis no arquivo `appsettings.json`.
     "UseHttpClientInstrumentation": true,
     "UseGrpcClientInstrumentation": true,
     "Tags": [
-            "X-PTO-TraceId",
-            "X-PTO-ParentSpanId",
-            "X-PTO-SpanId"
+            "X-B3-TraceId",
+            "X-B3-ParentSpanId",
+            "X-B3-SpanId"
      ]    
   }
 }

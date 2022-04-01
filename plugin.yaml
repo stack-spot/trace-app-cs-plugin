@@ -21,6 +21,49 @@ inputs:
   name: "port"
   default: ""
 
+computedInputs: 
+  "package": "{% if inputs.exporter_type == 'X-Ray - Daemon' %}{{'StackSpot.Tracing.XRay'}}{% else %}{{'StackSpot.Tracing'}}{% endif %}"
+  "using": "{% if inputs.exporter_type == 'X-Ray - Daemon' %}{{'using StackSpot.Tracing.XRay;'}}{% else %}{{'using StackSpot.Tracing;'}}{% endif %}"
+  "service": "{% if inputs.exporter_type == 'X-Ray - Daemon' %}{{'services.AddXRay(configuration);\n'}}{% else %}{{'services.AddOpenTelemetryTracing(configuration);\n'}}{% endif %}"
+  "app": "{% if inputs.exporter_type == 'X-Ray - Daemon' %}{{'app.UseXRay(configuration[\"AppName\"]);\n'}}{% else %}{% endif %}"
+
+hooks:
+#package
+  - type: run
+    trigger: before-render
+    commands:
+      - dotnet add src/{{global_inputs.project_name}}.Application package {{computed_inputs.package}}
+      - dotnet add src/{{global_inputs.project_name}}.Infrastructure package {{computed_inputs.package}}
+#dependencyinjection
+  - type: edit
+    trigger: before-render
+    path: "src/{{project_name}}.Application/Common/StackSpot/DependencyInjection.cs"
+    changes:
+      - search:
+          string: "using"
+          insert-before:
+            value: "{{computed_inputs.using}}"
+          when:
+            not-exists: "{{computed_inputs.using}}"
+      - search:
+          string: "return services"
+          insert-before:
+            value: "{{computed_inputs.service}}"
+          when:
+            not-exists: "{{computed_inputs.service}}"
+      - search:
+          string: "return app"
+          insert-before:
+            value: "{{computed_inputs.app}}"
+          when:
+            not-exists: "{{computed_inputs.app}}"
+#format
+  - type: run
+    trigger: after-render
+    working-dir: src/{{project_name}}.Application
+    commands:
+      -  dotnet dotnet-format --include-generated
+
 displayName: Trace
 
 picture: "plugin.png"
